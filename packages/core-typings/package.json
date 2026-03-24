@@ -9,7 +9,7 @@
 	],
 	"scripts": {
 		".:build:build": "tsc -p tsconfig.json",
-		".:build:clean": "rimraf dist",
+		".:build:clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
 		".:build:prepare": "ts-patch install && typia patch",
 		"build": "run-s .:build:prepare .:build:clean .:build:build",
 		"dev": "tsc --watch --preserveWatchOutput -p tsconfig.json",

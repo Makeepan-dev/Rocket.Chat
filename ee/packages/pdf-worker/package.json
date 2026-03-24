@@ -8,7 +8,7 @@
 		"/dist"
 	],
 	"scripts": {
-		"build": "tsc -p tsconfig.build.json && cp -r src/public dist/public",
+		"build": "tsc -p tsconfig.build.json && node -e \"require('fs').cpSync('src/public', 'dist/public', { recursive: true })\"",
 		"dev": "tsc -p tsconfig.build.json --watch --preserveWatchOutput",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",

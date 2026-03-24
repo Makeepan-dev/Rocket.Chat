@@ -23,8 +23,8 @@
 		"/dist"
 	],
 	"scripts": {
-		".:build-preview-move": "mkdir -p ../../.preview/ && cp -r ./storybook-static ../../.preview/fuselage-ui-kit",
-		".:build:clean": "rimraf dist",
+		".:build-preview-move": "node -e \"require('fs').mkdirSync('../../.preview/', { recursive: true })\" && node -e \"require('fs').cpSync('./storybook-static', '../../.preview/fuselage-ui-kit', { recursive: true })\"",
+		".:build:clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
 		".:build:tsc": "tsc -p tsconfig.build.json",
 		"build": "run-s .:build:clean .:build:tsc",
 		"build-preview": "yarn build-storybook",

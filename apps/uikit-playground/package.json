@@ -4,7 +4,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		".:build-preview-move": "mkdir -p ../../.preview/ && cp -r ./dist ../../.preview/uikit-playground",
+		".:build-preview-move": "node -e \"require('fs').mkdirSync('../../.preview/', { recursive: true })\" && node -e \"require('fs').cpSync('./dist', '../../.preview/uikit-playground', { recursive: true })\"",
 		"build-preview": "tsc && vite build",
 		"dev": "vite",
 		"lint": "eslint .",

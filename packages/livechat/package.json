@@ -14,7 +14,7 @@
 	"scripts": {
 		"build": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack-cli --mode production",
 		"build-storybook": "storybook build",
-		"clean": "rimraf dist",
+		"clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
 		"dev": "yarn build",
 		"eslint": "eslint .",
 		"lint": "yarn run eslint && yarn run stylelint",

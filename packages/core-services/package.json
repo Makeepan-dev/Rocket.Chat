@@ -8,7 +8,7 @@
 		"/dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && tsc",
+		"build": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\" && tsc",
 		"dev": "tsc --watch --preserveWatchOutput",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",

@@ -43,7 +43,7 @@
 		"server/**"
 	],
 	"scripts": {
-		".:build:clean": "rimraf client definition server",
+		".:build:clean": "node -e \"['client', 'definition', 'server'].forEach(d => require('fs').rmSync(d, { recursive: true, force: true }))\"",
 		".:build:default": "tsc -p tsconfig.json",
 		".:build:deno-cache": "node scripts/deno-cache.js",
 		".:deno-fmt:fix": "cd deno-runtime && deno fmt",

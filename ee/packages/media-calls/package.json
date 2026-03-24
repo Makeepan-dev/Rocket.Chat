@@ -8,8 +8,8 @@
 		"/dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && tsc -p tsconfig.json",
-		"build-preview": "mkdir -p ../../.preview && cp -r ./dist ../../.preview/media-calls",
+		"build": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\" && tsc -p tsconfig.json",
+		"build-preview": "node -e \"require('fs').mkdirSync('../../.preview', { recursive: true })\" && node -e \"require('fs').cpSync('./dist', '../../.preview/media-calls', { recursive: true })\"",
 		"dev": "tsc -p tsconfig.json --watch --preserveWatchOutput",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",

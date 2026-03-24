@@ -27,7 +27,7 @@
 		"/dist"
 	],
 	"scripts": {
-		".:build:clean": "rimraf dist",
+		".:build:clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
 		".:build:tsc": "tsc -p tsconfig.build.json",
 		"build": "run-s .:build:clean .:build:tsc",
 		"lint": "eslint ."

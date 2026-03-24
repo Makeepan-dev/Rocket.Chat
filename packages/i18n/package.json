@@ -24,7 +24,7 @@
 		"/dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && tsc -p tsconfig.build.json && node --experimental-transform-types ./src/scripts/build.mts",
+		"build": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\" && tsc -p tsconfig.build.json && node --experimental-transform-types ./src/scripts/build.mts",
 		"check": "node --experimental-transform-types ./src/scripts/check.mts",
 		"lint": "eslint && node --experimental-transform-types ./src/scripts/check.mts",
 		"lint:fix": "eslint --fix && node --experimental-transform-types ./src/scripts/check.mts --fix",
